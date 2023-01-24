@@ -1,0 +1,42 @@
+﻿@model VisualizzaPizze
+
+<div class="container">
+    <form asp-controller="Home" asp-action="FormEditPizza" method="post">
+        @Html.AntiForgeryToken()
+        <input asp-for="PizzaSelezionata.Id" type="hidden" class="form-control">
+        <div class="text-center">Modifica la pizza scelta: </div>
+        <div class="mb-3">
+            <strong>Nome:</strong>
+            <input asp-for="PizzaSelezionata.Nome" class="d-block w-100" />
+        </div>
+        <div class="mb-3">
+            <strong>Prezzo:</strong>
+            <input asp-for="PizzaSelezionata.Prezzo" class="d-block w-100" />
+        </div>
+        <div class="mb-3">
+            <strong>Descrizione:</strong>
+            <input asp-for="PizzaSelezionata.Descrizione" class="d-block w-100" />
+        </div>
+        <div class="mb-3">
+            <strong>Immagine:</strong>
+            <input asp-for="PizzaSelezionata.Immagine" class="d-block w-100" />
+        </div>
+        <div class="mb-3">
+            <label>Categoria:</label>
+            <option value""></option>
+            <select asp-for="PizzaSelezionata.CategoriaId" rows="10" class="d-block w-100">
+                <option value=""></option>
+                @foreach (Categoria categoria in Model.ListaCategorie)
+                {
+                    <option value="@categoria.Id">@categoria.NomeCategoria</option>
+                }
+
+                <span asp-validation-for="PizzaSelezionata.CategoriaId" class="text-danger"></span>
+            </select>
+        </div>
+        <div class="text-end">
+            <input type="submit" class="btn btn-small btn-info" value="Salva le modifiche">
+        </div>
+    </form>
+</div>
+    </main>
