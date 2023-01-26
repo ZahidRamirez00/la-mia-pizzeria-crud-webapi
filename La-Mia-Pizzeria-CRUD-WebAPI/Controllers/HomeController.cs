@@ -19,8 +19,8 @@ namespace La_Mia_Pizzeria_CRUD_WebAPI.Controllers
 
         public IActionResult Index()
         {
-            PizzaContext db = new PizzaContext();
-            List<Pizza> listaPizze = db.Pizzas.ToList();
+            /*PizzaContext db = new PizzaContext();
+            List<Pizza> listaPizze = db.Pizzas.ToList();*/
             return View(listaPizze);
         }
 
@@ -90,7 +90,7 @@ namespace La_Mia_Pizzeria_CRUD_WebAPI.Controllers
                 return View("Modifica");
             }
             PizzaContext db = new PizzaContext();
-            Pizza pizza = (from p in db.Pizzas where p.Id == formData.PizzaSelezionata.Id select p).FirstOrDefault();
+            Pizza pizza = (from p in db.Pizze where p.Id == formData.PizzaSelezionata.Id select p).FirstOrDefault();
             pizza.Nome = formData.PizzaSelezionata.Nome;
             pizza.Prezzo = formData.PizzaSelezionata.Prezzo;
             pizza.Descrizione = formData.PizzaSelezionata.Descrizione;
@@ -108,7 +108,7 @@ namespace La_Mia_Pizzeria_CRUD_WebAPI.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        */
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -7,7 +7,7 @@ namespace La_Mia_Pizzeria_CRUD_WebAPI.Models
     [Table("Categorie")]
     public class Categoria
     {
-        public int Id { get; set; }
+        public int CategoriaId { get; set; }
         public string NomeCategoria { get; set; }
 
         public List<Pizza>? Pizzas { get; set; }
